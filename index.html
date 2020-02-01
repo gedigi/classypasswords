@@ -146,7 +146,7 @@
     <p>Un generatore di classe per password di classe</p>
   </header>
   <section id="passwords-section">
-    <h2>Password generate con amore</h2>
+    <h2>Password generate</h2>
     <div id="passwords"></div>
     <button id="generate" onclick="resetPasswords()">GENERA</button>
   </section>
@@ -204,16 +204,13 @@
     <p>
       Questo generatore usa un approccio simile a
       <a href="https://xkcd.com/936/">Correct Horse Battery Staple</a>,
-      ma con delle modifiche per generare password più concise e facili da
-      scrivere.
-    </p>
-    <p>
-      Le parole sono selezionate dalla lista fornita dal
+      ma usando il dizionario fornito dal
       <a href="https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki">Bitcoin
-        Improvement Proposal #39</a>. La lista contiene 2048 parole comuni;
+        Improvement Proposal #39</a>. Il dizionario contiene 2048 parole comuni;
       le prime quattro lettere di ogni parola sono uniche. Il generatore
-      seleziona cinque parole a caso dalla lista e concatena le prime
-      quattro lettere di ognuna per generare una password.
+      seleziona cinque parole a caso per generare una passphrase. Le prime
+      quattro lettere di queste parole, concatenate, possono essere usate
+      come password.
     </p>
     <p>
       Il sito può generare 35853175596564480 password uniche, basate su
@@ -2327,8 +2324,8 @@
       function resetPasswords() {
         var numPasswords = 16;
         var container = document.getElementById('passwords');
-        container.innerHTML = '<div class="header">Ricordi...</div>' +
-          '<div class="header">Scrivi...</div>';
+        container.innerHTML = '<div class="header">Ricordi</div>' +
+          '<div class="header">Scrivi</div>';
 
         for (var passwordIdx = 0; passwordIdx < numPasswords; passwordIdx++) {
           appendPasswordRow(container);
